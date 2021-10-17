@@ -1,5 +1,5 @@
-import { promisify } from 'util';
-import childProcess from 'child_process';
+import { promisify } from "util";
+import * as childProcess from "child_process";
 
 const exec = promisify(childProcess.exec);
 
@@ -26,12 +26,12 @@ export const runCommand = async (command: string) => {
  * '--all-namespaces --namespace=my-namespace'
  */
 export const buildFlagsString = (flags: object) => {
-  let flagsString = '';
+  let flagsString = "";
   Object.entries(flags).forEach(([key, value]) => {
-    if (typeof value === 'boolean') {
-      flagsString += value === false ? '' : ` ${key}`;
-    } else if (typeof value === 'string') {
-      flagsString += value.length === 0 ? '' : ` ${key}=${value}`;
+    if (typeof value === "boolean") {
+      flagsString += value === false ? "" : ` ${key}`;
+    } else if (typeof value === "string") {
+      flagsString += value.length === 0 ? "" : ` ${key}=${value}`;
     }
   });
   return flagsString.trim();
