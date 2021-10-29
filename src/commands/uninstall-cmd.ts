@@ -20,10 +20,10 @@ const buildHelmUninstallCmd = (name: string, flags: UninstallFlags = {}) => {
 const uninstall = async (
   name: string,
   flags: UninstallFlags = {}
-): Promise<Release> => {
+): Promise<{ stdout: string }> => {
   const command = buildHelmUninstallCmd(name, flags);
   const stdout = await runCommand(command);
-  return JSON.parse(stdout);
+  return { stdout };
 };
 
 export default uninstall;
