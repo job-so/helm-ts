@@ -17,6 +17,7 @@ export type ListFlags = GlobalFlags & {
 };
 
 export type InstallFlags = GlobalFlags & {};
+export type UninstallFlags = GlobalFlags & {};
 
 export type Release = {
   name: string;
